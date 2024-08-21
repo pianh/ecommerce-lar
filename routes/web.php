@@ -8,10 +8,13 @@ use App\Http\Controllers\LienheController;
 
 Route::get('/lien-he',[LienheController::class, 'index']);
 
-Route::get('/danh-sach-loai-sp/create', [LoaisanphamController::class, 'create'])->name('loaisanpham.create');
-Route::post('/danh-sach-loai-sp/save',[LoaisanphamController::class, 'save'])->name('loaisanpham.save');
+Route::post('/danh-sach-lsp/update',[LoaisanphamController::class, 'update'])->name('loaisanpham.update');
+Route::get('/danh-sach-lsp/edit',[LoaisanphamController::class, 'edit'])->name('loaisanpham.edit');
+Route::post('/danh-sach-lsp/delete', [LoaisanphamController::class, 'destroy'])->name('loaisanpham.delete');
+Route::get('/danh-sach-lsp/create', [LoaisanphamController::class, 'create'])->name('loaisanpham.create');
+Route::post('/danh-sach-lsp/save',[LoaisanphamController::class, 'save'])->name('loaisanpham.save');
+Route::get('/danh-sach-lsp', [LoaisanphamController::class, 'index'])->name('loaisanpham.index');
 
-Route::get('/danh-sach-loai-sp', [LoaisanphamController::class, 'index'])->name('loaisanpham.index');
                                     //controller            action
 Route::get('/danh-sach-sv', [SinhVienController::class, 'danh_sach']);
 

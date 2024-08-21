@@ -21,8 +21,13 @@ Danh sách loại sản phẩm
       <td>{{ $lsp->lsp_ten }}</td>
       <td>{{ $lsp->lsp_mota }}</td>
       <td>
-        <a href="" class="btn btn-warning">Sửa</a>
-        <a href="" class="btn btn-danger">Xóa</a>
+        <a href="{{ route('loaisanpham.edit', ['lsp_ma' =>  $lsp->lsp_ma]) }}" class="btn btn-warning">Sửa</a>
+        <form action="{{ route('loaisanpham.delete') }}" name="frmDelete" method="post">
+          @csrf
+          <input type="hidden" name="lsp_ma" value="{{ $lsp->lsp_ma }}" />
+          <button type="submit" class="btn btn-danger">Xóa</button>
+        </form>
+        {{-- <a href="" class="btn btn-danger">Xóa</a> --}}
       </td>
     </tr>
     @endforeach
