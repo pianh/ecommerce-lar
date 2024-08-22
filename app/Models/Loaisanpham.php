@@ -15,4 +15,8 @@ class Loaisanpham extends Model
     protected $primaryKey = 'lsp_ma';
 
     public $timestamps = false;
+
+    public function danhsach_sanpham() {
+        return $this->hasMany('App\Models\Sanpham', 'lsp_ma', 'lsp_ma');
+    }
 }
