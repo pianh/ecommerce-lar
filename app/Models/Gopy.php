@@ -17,7 +17,7 @@ class Gopy extends Model
 
     protected $dates = ['gy_ngaygopy'];
     protected $dateFormat = 'Y-m-d H:i:s';
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function chude_gopy(){
         return $this->belongsTo('App\Models\Chudegopy', 'cdgy_ma', 'cdgy_ma');

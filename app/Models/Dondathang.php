@@ -17,7 +17,7 @@ class Dondathang extends Model
 
     protected $dates = ['dh_ngaylap', 'dh_ngaygiao'];
     protected $dateFormat = 'Y-m-d H:i:s';
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function chitiet_dondathang(){
         return $this->hasMany('App\Models\SanphamDondathang', 'dh_ma', 'dh_ma');

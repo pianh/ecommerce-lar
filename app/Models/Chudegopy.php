@@ -14,7 +14,7 @@ class Chudegopy extends Model
     protected $guarded = ['cdgy_ma'];
     protected $primaryKey = 'cdgy_ma';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function danhsach_gopy() {
         return $this->hasMany('App\Models\Gopy', 'cdgy_ma', 'cdgy_ma');

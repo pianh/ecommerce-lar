@@ -15,7 +15,7 @@ class SanphamDondathang extends Model
     protected $guarded = ['sp_ma', 'dh_ma'];
     protected $primaryKey = ['sp_ma', 'dh_ma'];
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function sanpham() {
         return $this->belongsTo('App\Models\Sanpham', 'sp_ma', 'sp_ma');

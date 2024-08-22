@@ -5,9 +5,18 @@ use App\Http\Controllers\SinhVienController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\LoaisanphamController;
 use App\Http\Controllers\LienheController;
+use App\Http\Controllers\SanphamController;
 
 Route::get('/lien-he',[LienheController::class, 'index']);
 
+//Route San pham
+Route::get('/sanpham', [SanphamController::class, 'index']);
+Route::get('/sanpham/edit', [SanphamController::class, 'edit'])->name('sanpham.edit');
+Route::post('/sanpham/delete', [SanphamController::class, 'destroy'])->name('sanpham.delete');
+Route::get('/sanpham/create', [SanphamController::class, 'create'])->name('sanpham.create');
+Route::get('/sanpham/save', [SanphamController::class, 'save'])->name('sanpham.save');
+
+// Route loai san pham
 Route::post('/danh-sach-lsp/update',[LoaisanphamController::class, 'update'])->name('loaisanpham.update');
 Route::get('/danh-sach-lsp/edit',[LoaisanphamController::class, 'edit'])->name('loaisanpham.edit');
 Route::post('/danh-sach-lsp/delete', [LoaisanphamController::class, 'destroy'])->name('loaisanpham.delete');

@@ -10,14 +10,14 @@ class Sanpham extends Model
     use HasFactory;
 
     protected $table = 'sanpham';
-    protected $fillable = ['sp_ten', 'sp_gia', 'sp_giacu', 
+    protected $fillable = ['sp_ma','sp_ten', 'sp_gia', 'sp_giacu', 
                             'sp_mota_ngan', 'sp_mota_chitiet', 'sp_ngaycapnhat', 'sp_soluong', 'lsp_ma', 'nsx_ma', 'km_ma'];
     protected $guarded = ['sp_ma'];
     protected $primaryKey = 'sp_ma';
 
     protected $dates = ['sp_ngaycapnhat'];
     protected $dateFormat = 'Y-m-d H:i:s';
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function chitiet_dondathang(){
         return $this->hasMany('App\Models\SanphamDondathang', 'sp_ma', 'sp_ma');

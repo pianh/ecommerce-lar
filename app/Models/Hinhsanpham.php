@@ -13,7 +13,7 @@ class Hinhsanpham extends Model
     protected $guarded = ['hsp_ma'];
     protected $primaryKey = 'hsp_ma';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function sanpham() {
         return $this->belongsTo('App\Models\Sanpham', 'sp_ma', 'sp_ma');

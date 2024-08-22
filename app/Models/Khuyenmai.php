@@ -16,7 +16,7 @@ class Khuyenmai extends Model
 
     protected $dates = ['kh_tungay', 'km_denngay'];
     protected $dateFormat = 'Y-m-d H:i:s';
-    protected $timestamps = false;
+    public $timestamps = false;
 
     
     public function danhsach_sanpham() {

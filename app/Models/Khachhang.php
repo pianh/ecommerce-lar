@@ -14,7 +14,7 @@ class Khachhang extends Model
     protected $guarded = ['kh_tendangnhap'];
     protected $primaryKey = 'kh_tendangnhap';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function danhsach_dondathang() {
         return $this->hasMany('App\Models\Dondathang', 'kh_tendangnhap', 'kh_tendangnhap');

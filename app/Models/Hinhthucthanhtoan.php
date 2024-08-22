@@ -14,7 +14,7 @@ class Hinhthucthanhtoan extends Model
     protected $guarded = ['httt_ma'];
     protected $primaryKey = 'httt_ma';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function danhsach_dondathang() {
         return $this->hasMany('App\Models\Dondathang', 'httt_ma', 'httt_ma');
