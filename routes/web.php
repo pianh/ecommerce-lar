@@ -6,8 +6,15 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\LoaisanphamController;
 use App\Http\Controllers\LienheController;
 use App\Http\Controllers\SanphamController;
+use App\Http\Controllers\HinhsanphamController;
 
 Route::get('/lien-he',[LienheController::class, 'index']);
+
+// Rou Hinh san pham
+Route::get('/hinhsanpham/create', [HinhsanphamController::class, 'create'])->name('hinhsanpham.create');
+Route::post('/hinhsanpham/save', [HinhsanphamController::class, 'save'])->name('hinhsanpham.save');
+Route::get('/hinhsanpham', [HinhsanphamController::class, 'index'])->name('hinhsanpham.index');
+
 
 //Route San pham
 Route::get('/sanpham', [SanphamController::class, 'index'])->name('sanpham.index');

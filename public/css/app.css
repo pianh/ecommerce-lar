@@ -1,3 +1,9 @@
 .hinh-logo {
   width: 120px;
 }
+
+.hinh-sanpham {
+  width: 100px;
+  // height: 100;
+  object-fit: contain;
+}
