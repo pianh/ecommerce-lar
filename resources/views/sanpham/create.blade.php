@@ -1,4 +1,4 @@
-@extends('layout/master');
+@extends('layout/master')
 
 @section('title')
 Thêm mới sản phẩm
@@ -7,6 +7,7 @@ Thêm mới sản phẩm
 @section('content')
 <h1>Thêm mới sản phẩm</h1>
 <form name="frmCreate" method="post" action="{{ route('sanpham.save') }}">
+  @csrf
   <div>
     <label for="" class="form-label">Tên SP</label>
     <input type="text" name="sp_ten" class="form-control" />
@@ -43,7 +44,7 @@ Thêm mới sản phẩm
   </div>
   <div>
     <label for="" class="form-label">Nhà sản xuất</label>
-    <select name="lsp_ma" class="form-select">
+    <select name="nsx_ma" class="form-select">
       @foreach($dsNhasanxuat as $nsx)
         <option value="{{ $nsx->nsx_ma }}">
           {{ $nsx->nsx_ten }}
@@ -53,7 +54,7 @@ Thêm mới sản phẩm
   </div>
   <div>
     <label for="" class="form-label">Khuyến mãi</label>
-    <select name="lsp_ma" class="form-select">
+    <select name="km_ma" class="form-select">
       <option value="">Mời bạn lựa chọn khuyến mãi</option>
       @foreach($dsKhuyenmai as $km)
         <option value="{{ $km->km_ma }}">

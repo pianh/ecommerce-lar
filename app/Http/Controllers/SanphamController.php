@@ -20,12 +20,16 @@ class SanphamController extends Controller
 
     //action edit
     public function edit(Request $request) {
-        //$request->sp_ma
-    }
+        $editingRow = Sanpham::find($request->sp_ma);
+        $dsLoaisanpham = Loaisanpham::all();
+        $dsNhasanxuat = Nhasanxuat::all();
+        $dsKhuyenmai = Khuyenmai::all();
 
-    //action delete
-    public function destroy(Request $request) {
-        //$request->sp_ma
+        return view('sanpham/edit')
+                ->with('dsLoaisanpham', $dsLoaisanpham)
+                ->with('dsNhasanxuat', $dsNhasanxuat)
+                ->with('dsKhuyenmai', $dsKhuyenmai)
+                ->with('editingRow', $editingRow);
     }
 
     //action create
@@ -39,8 +43,61 @@ class SanphamController extends Controller
                 ->with('dsNhasanxuat', $dsNhasanxuat)
                 ->with('dsKhuyenmai', $dsKhuyenmai);
     }
-        //action create
+
+    //action delete
+    public function destroy(Request $request) {
+      $deletingRow = Sanpham::find($request->lsp_ma);
+      $deletingRow->destroy($request->lsp_ma);
+      //Laravel phiên bản 11 có thêm xóa hàng loạt
+
+      //Điều hướng về trang danh sách
+      return redirect( route('sanpham.index') );
+    }
+
+
+    //action save
     public function save(Request $request) {
-        return view('sanpham/create');
+        $newRecord = new Sanpham();
+        $newRecord->sp_ten = $request->sp_ten;
+        $newRecord->sp_gia = $request->sp_gia;
+        $newRecord->sp_giacu = $request->sp_giacu;
+        $newRecord->sp_mota_ngan = $request->sp_mota_ngan;
+        $newRecord->sp_mota_chitiet = $request->sp_mota_chitiet;
+        $newRecord->sp_ngaycapnhat = date('Y-m-d H:i:s');
+        $newRecord->sp_soluong = $request->sp_soluong;
+        $newRecord->lsp_ma = $request->lsp_ma;
+        $newRecord->nsx_ma = $request->nsx_ma;
+        if( isset($request->km_ma) && !empty($request->km_ma) ) {
+            $newRecord->km_ma = $request->km_ma;
+        } else {
+           $newRecord->km_ma = null; 
+        }
+        $newRecord->save();
+
+        //Điều hướng về tranh danh sách
+        return redirect(route('sanpham.index'));
+    }
+
+    //action save
+    public function update(Request $request) {
+        $newRecord = Sanpham::find($request->sp_ma);
+        $newRecord->sp_ten = $request->sp_ten;
+        $newRecord->sp_gia = $request->sp_gia;
+        $newRecord->sp_giacu = $request->sp_giacu;
+        $newRecord->sp_mota_ngan = $request->sp_mota_ngan;
+        $newRecord->sp_mota_chitiet = $request->sp_mota_chitiet;
+        $newRecord->sp_ngaycapnhat = date('Y-m-d H:i:s');
+        $newRecord->sp_soluong = $request->sp_soluong;
+        $newRecord->lsp_ma = $request->lsp_ma;
+        $newRecord->nsx_ma = $request->nsx_ma;
+        if( isset($request->km_ma) && !empty($request->km_ma) ) {
+            $newRecord->km_ma = $request->km_ma;
+        } else {
+           $newRecord->km_ma = null; 
+        }
+        $newRecord->save();
+
+        //Điều hướng về tranh danh sách
+        return redirect(route('sanpham.index'));
     }
 }

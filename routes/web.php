@@ -10,11 +10,12 @@ use App\Http\Controllers\SanphamController;
 Route::get('/lien-he',[LienheController::class, 'index']);
 
 //Route San pham
-Route::get('/sanpham', [SanphamController::class, 'index']);
+Route::get('/sanpham', [SanphamController::class, 'index'])->name('sanpham.index');
 Route::get('/sanpham/edit', [SanphamController::class, 'edit'])->name('sanpham.edit');
+Route::post('/sanpham/update', [SanphamController::class, 'update'])->name('sanpham.update');
 Route::post('/sanpham/delete', [SanphamController::class, 'destroy'])->name('sanpham.delete');
 Route::get('/sanpham/create', [SanphamController::class, 'create'])->name('sanpham.create');
-Route::get('/sanpham/save', [SanphamController::class, 'save'])->name('sanpham.save');
+Route::post('/sanpham/save', [SanphamController::class, 'save'])->name('sanpham.save');
 
 // Route loai san pham
 Route::post('/danh-sach-lsp/update',[LoaisanphamController::class, 'update'])->name('loaisanpham.update');
