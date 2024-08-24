@@ -14,7 +14,9 @@ Route::get('/lien-he',[LienheController::class, 'index']);
 Route::get('/hinhsanpham/create', [HinhsanphamController::class, 'create'])->name('hinhsanpham.create');
 Route::post('/hinhsanpham/save', [HinhsanphamController::class, 'save'])->name('hinhsanpham.save');
 Route::get('/hinhsanpham', [HinhsanphamController::class, 'index'])->name('hinhsanpham.index');
-
+Route::get('/hinhsanpham/edit', [HinhsanphamController::class, 'edit'])->name('hinhsanpham.edit');
+Route::post('/hinhsanpham/update', [HinhsanphamController::class, 'update'])->name('hinhsanpham.update');
+Route::post('/hinhsanpham/delete', [HinhsanphamController::class, 'destroy'])->name('hinhsanpham.delete');
 
 //Route San pham
 Route::get('/sanpham', [SanphamController::class, 'index'])->name('sanpham.index');
